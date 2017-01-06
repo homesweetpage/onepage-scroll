@@ -26,7 +26,10 @@ function serverSetup() {
 
 function stylusReload() {
     gulp.src('./app/css/stylus/style.styl')
-        .pipe(stylus({use: nib()}))
+        .pipe(stylus({
+            use: nib(),
+            compress: true
+        }))
         .pipe(gulp.dest('./app/css'))
         .pipe(connect.reload());
 }
@@ -51,12 +54,8 @@ function watchFiles() {
 }
 
 function injectFiles() {
-    var modernizr = gulp.src('./app/js/vendor/modernizr*.js', {read: false}, {name: 'head'});
-    var sources = gulp.src(['./app/js/**/*.js', './app/css/**/*.css', '!./app/js/vendor/modernizr*.js'], {read: false});
+    var sources = gulp.src(['./app/js/**/*.js', './app/css/**/*.css', '!./app/js/vendor/**/*.js'], {read: false});
     return gulp.src('./app/index.html')
-        .pipe(inject(modernizr, {
-            ignorePath: '/app'
-        }))
         .pipe(inject(sources, {
             ignorePath: '/app'
         }))
