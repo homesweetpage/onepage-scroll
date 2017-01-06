@@ -1,0 +1,24 @@
+{
+  "name": "onepage-scroll",
+  "description": "Template for onepage scroll webapp",
+  "main": "app/index.html",
+  "authors": [
+    "HomeSweetHomePage"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "template",
+    "webapp",
+    "onepage-scroll",
+    "scroll",
+    "onepage"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
